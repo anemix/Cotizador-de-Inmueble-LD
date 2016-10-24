@@ -1,0 +1,17 @@
+.error{
+    background: red;
+    padding: 5px;
+    color: #fff;
+    margin: 12px;
+    display: inline-block;
+}
+
+.checkbox-list{
+    display: inline-block;
+    vertical-align: middle;
+    padding:10px;
+}
+
+.recuadro{
+    border: solid 1px #adadad ;
+}
