@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="LogicaApp">
-<head>
+
+    <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="">
     <title>Seleccione su inmueble</title>
@@ -8,11 +9,18 @@
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body ng-controller="formController">
-    <div class="container">
-        <div class="header">
+<div class="container">
+        <div class="header" style="text-align: center">
             <img src="images/logotipo_uelbosque.jpg">
+            <div>
+                <h5>Docente Pedro Ruiz</h5>
+                <h5>Lógica Difusa</h5>
+                <h5>Ximena Garzón Sandoval</h5>
+                <h5>Hernán Silva</h5>
+            </div>
         </div>
-        <form name="formdatos">
+        <h2 style="text-align: center">Cotizador de inmuebles</h2>
+        <form name="formdatos" ng-submit="calcular()">
             <div class="form-group col-md-6">
                 <label for="">Tipo de Apartamento:</label>
                 <div ng-repeat="tipo in tipos">
@@ -21,47 +29,51 @@
                 <div class="form-group">
                     <label for="">Estrato:</label>
                     <div>
-                        <select ng-model="datos.estrato" ng-options="list for list in listado_estratos"></select>
+                        <select ng-model="datos.estrato" ng-options="list for list in listado_estratos" required></select>
                     </div>
                 </div>
                 <div class="form-group">
                     <label>Entradas de Luz</label>
                     <div>
-                        <input type="text" name="luz" ng-model="datos.luz" ng-pattern="/^[0-9]{1,2}$/">
-                        <div ng-show="formdatos.$invalid" ng-class="{'error': formdatos.luz.$invalid }">Valor no Valido!! Por favor ingrese un valor entre 0 y 10 entradas de luz.</div>
+                        <input type="text" name="luz" ng-model="datos.luz" ng-pattern="/^[0-9]{1,2}$/" required>
+                        <div ng-show="formdatos.luz.$invalid && formdatos.luz.$dirty" ng-class="{'error': formdatos.luz.$invalid }" >Valor no Valido!! Por favor ingrese un valor entre 0 y 10 entradas de luz.</div>
                     </div>
                 </div>
                 <div class="form-group">
                     <div><label>Zonas comunes:</label></div>
                     <div class="checkbox-list">
                         <div ng-repeat="zona in zonas_comunes.slice(0,5)">
-                            <input type="checkbox" ng-model="datos.zonas[zona.id]" name="zonas">{{zona.name}}
+                            <input type="checkbox" ng-model="datos.zonas[zona.name]" name="zonas">{{zona.name}}
                         </div>
                     </div>
                     <div class="checkbox-list">
                         <div ng-repeat="zona in zonas_comunes.slice(5)">
-                            <input type="checkbox" ng-model="datos.zonas[zona.id]" name="zonas">{{zona.name}}
+                            <input type="checkbox" ng-model="datos.zonas[zona.name]" name="zonas">{{zona.name}}
                         </div>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-md-1">Precio</label>
                     <div class="col-md-3">
-                        <input type="range" step="1000000" name="precio" ng-model="datos.precio" class="form-control" min="{{min}}" max="{{max}}">
+                        <input type="range" step="1000000" name="precio" ng-model="datos.precio" class="form-control" min="{{min}}" max="{{max}}" required>
                         <label for="precio">{{datos.precio | currency}}</label>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-md-1">Metros</label>
+                    <label class="col-md-1">Tamaño (m2)</label>
                     <div class="col-md-3">
                         <input type="range" step="10" name="metros" ng-model="datos.metros" class="form-control" min="{{min_mtr}}" max="{{max_mtr}}">
                         <label for="precio">{{datos.metros}}</label>
                     </div>
                 </div>
-                <button class="btn btn-primary">Buscar mi mejor Opción</button>
+                <button class="btn btn-primary" ng-disabled="formdatos.$invalid">Buscar mi mejor Opción</button><span style="color: #b1b1b1" ng-show="formdatos.$invalid">Faltan diligenciar campos del formulario.</span>
             </div>
             <div class="col-md-6 recuadro">
-                acá va a salir la respuesta
+                <b>Estrato:</b> {{calculo.estrato}}</br>
+                <b>Precio:</b> {{calculo.precio}}</br>
+                <b>Tamaño:</b> {{calculo.metros}}</br>
+                <b>Luminosidad:</b> {{calculo.luz}}</br>
+                <b>Zonas Comunes:</b><ul> <ol ng-repeat="(key, zona) in calculo.zonas"><label ng-show="zona">{{key}}</label></ol></ul></br>
             </div>
         </form>
     </div>

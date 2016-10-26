@@ -1,0 +1,167 @@
+{
+  "estrato": {
+    "1": "bajo",
+    "2": {
+      "precio": {
+        "costoso": "medio",
+        "normal": "medio",
+        "barato": "bajo"
+      }
+    },
+    "3": {
+      "precio": {
+        "costoso": "medio",
+        "normal": "medio",
+        "barato": "bajo"
+      }
+    },
+    "4": {
+      "precio": {
+        "costoso": "alto",
+        "normal": "medio",
+        "barato": "medio"
+      }
+    },
+    "5": "alto",
+    "6": "alto"
+  },
+  "precio": {
+    "casa": [
+      {
+        "rango": [
+          200000000,
+          400000000
+        ],
+        "categoria": "barato"
+      },
+      {
+        "rango": [
+          400000000,
+          600000000
+        ],
+        "categoria": "normal"
+      },
+      {
+        "rango": [
+          600000000,
+          1000000000
+        ],
+        "categoria": "costoso"
+      }
+    ],
+    "apto": [
+      {
+        "rango": [
+          140000000,
+          200000000
+        ],
+        "categoria": "barato"
+      },
+      {
+        "rango": [
+          200000000,
+          500000000
+        ],
+        "categoria": "normal"
+      },
+      {
+        "rango": [
+          500000000,
+          800000000
+        ],
+        "categoria": "costoso"
+      }
+    ]
+  },
+  "metros": {
+    "casa": [
+      {
+        "rango": [
+          50,
+          120
+        ],
+        "categoria": "pequeño"
+      },
+      {
+        "rango": [
+          120,
+          300
+        ],
+        "categoria": "mediano"
+      },
+      {
+        "rango": [
+          300,
+          1000
+        ],
+        "categoria": "grande"
+      }
+    ],
+    "apto": [
+      {
+        "rango": [
+          25,
+          45
+        ],
+        "categoria": "pequeño"
+      },
+      {
+        "rango": [
+          45,
+          80
+        ],
+        "categoria": "mediano"
+      },
+      {
+        "rango": [
+          80,
+          150
+        ],
+        "categoria": "grande"
+      }
+    ]
+  },
+  "luz": {
+    "0": "oscuro",
+    "1": "oscuro",
+    "2": "oscuro",
+    "3": {
+      "metros": {
+        "pequeño": "claro",
+        "mediano": "claro",
+        "grande": "oscuro"
+      }
+    },
+    "4": {
+      "metros": {
+        "pequeño": "muy claro",
+        "mediano": "claro",
+        "grande": "oscuro"
+      }
+    },
+    "5": {
+      "metros": {
+        "pequeño": "muy claro",
+        "mediano": "muy claro",
+        "grande": "claro"
+      }
+    },
+    "6": {
+      "metros": {
+        "pequeño": "muy claro",
+        "mediano": "muy claro",
+        "grande": "claro"
+      }
+    },
+    "7": {
+      "metros": {
+        "pequeño": "muy claro",
+        "mediano": "muy claro",
+        "grande": "claro"
+      }
+    },
+    "8": "muy claro",
+    "9": "muy claro",
+    "10": "muy claro"
+  }
+}
